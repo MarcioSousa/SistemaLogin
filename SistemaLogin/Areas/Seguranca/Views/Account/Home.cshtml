@@ -1,0 +1,30 @@
+﻿@using SistemaLogin.Infraestrutura
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+</head>
+<body>
+    <div>
+        Foi para a página HOME
+        <div style="text-align:right">
+            @{ if (Html.GetAuthenticateUser().ToString() != "")
+                {
+                    @Html.GetAuthenticateUser();
+                    @Html.ActionLink(" - Sair", "Logout", "Account");
+                }
+                else
+                {
+                    @Html.ActionLink("Acessar", "Login", "Account", new { area = "Seguranca" }, null);
+                } }
+        </div>
+    </div>
+</body>
+</html>
