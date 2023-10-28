@@ -69,3 +69,4 @@ C:\Users\Marcio\source\repos\SistemaLogin\SistemaLogin\obj\Debug\SistemaLogin.cs
 C:\Users\Marcio\source\repos\SistemaLogin\SistemaLogin\obj\Debug\SistemaLogin.csproj.CopyComplete
 C:\Users\Marcio\source\repos\SistemaLogin\SistemaLogin\obj\Debug\SistemaLogin.dll
 C:\Users\Marcio\source\repos\SistemaLogin\SistemaLogin\obj\Debug\SistemaLogin.pdb
+C:\Users\Marcio\source\repos\SistemaLogin\SistemaLogin\obj\Debug\SistemaLogin.csproj.AssemblyReference.cache

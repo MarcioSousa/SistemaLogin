@@ -30,6 +30,7 @@ namespace SistemaLogin.Areas.Seguranca.Controllers
             if (ModelState.IsValid)
             {
                 Usuario user = UserManager.Find(details.Nome, details.Senha);
+
                 if (user == null)
                 {
                     ModelState.AddModelError("", "Nome ou senha inválido(s).");
@@ -73,5 +74,6 @@ namespace SistemaLogin.Areas.Seguranca.Controllers
                 return HttpContext.GetOwinContext().GetUserManager<GerenciadorUsuario>();
             }
         }
+
     }
 }

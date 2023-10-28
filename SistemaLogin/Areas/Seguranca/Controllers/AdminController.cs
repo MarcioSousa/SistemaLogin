@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using SistemaLogin.Areas.Seguranca.Data;
 using SistemaLogin.Infraestrutura;
 using System.Net;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,11 +12,74 @@ namespace SistemaLogin.Areas.Seguranca.Controllers
 {
     public class AdminController : Controller
     {
+        public ActionResult Login()
+        {
+            //ViewBag.returnUrl = returnUrl;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Login details)
+        {
+            if(details.Nome == "admin" && details.Senha == "admin")
+            {
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Nome ou senha inválido(s).");
+
+            return View(details);
+
+
+
+            //if (ModelState.IsValid)
+            //{
+            //    if (details.Nome == "devops" && details.Senha == "devops")
+            //    {
+            //        Usuario user = GerenciadorUsuario.Find(details.Nome, details.Senha);
+
+            //        if (user == null)
+            //        {
+            //            ModelState.AddModelError("", "Nome ou senha inválido(s).");
+            //        }
+            //        else
+            //        {
+            //            ClaimsIdentity ident = GerenciadorUsuario.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+            //            AuthManager.SignOut();
+            //            AuthManager.SignIn(new AuthenticationProperties
+            //            {
+            //                IsPersistent = false
+            //            }, ident);
+            //            if (returnUrl == null)
+            //            {
+            //                returnUrl = "/Index";
+            //            }
+            //            return RedirectToAction(returnUrl);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        ModelState.AddModelError("", "Nome ou senha inválido(s).");
+            //    }
+
+            //}
+            //return View(details);
+        }
+        private IAuthenticationManager AuthManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
+
         // GET: Seguranca/Admin
         public ActionResult Index()
         {
             return View(GerenciadorUsuario.Users);
         }
+
         private GerenciadorUsuario GerenciadorUsuario
         {
             get
