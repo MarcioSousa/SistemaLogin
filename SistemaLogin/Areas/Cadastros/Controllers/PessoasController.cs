@@ -7,10 +7,10 @@ using System.Web.Mvc;
 
 namespace SistemaLogin.Areas.Cadastros.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Cliente")]
     public class PessoasController : Controller
     {
-        private static IList<Pessoa> pessoas =
+        private static readonly IList<Pessoa> pessoas =
             new List<Pessoa>()
             {
                 new Pessoa()

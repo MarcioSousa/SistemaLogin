@@ -15,7 +15,7 @@
     <div>
         Foi para a página HOME
         <div style="text-align:right">
-            @*@{ if (Html.GetAuthenticateUser().ToString() != "")
+            @{ if (Html.GetAuthenticateUser().ToString() != "")
                 {
                     @Html.GetAuthenticateUser();
                     @Html.ActionLink(" - Sair", "Logout", "Account");
@@ -24,7 +24,7 @@
                 {
                     @Html.ActionLink("Acessar", "Login", "Account", new { area = "Seguranca" }, null);
                 } 
-             }*@
+             }
         </div>
     </div>
 </body>

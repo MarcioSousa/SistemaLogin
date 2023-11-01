@@ -14,7 +14,6 @@ namespace SistemaLogin.Areas.Seguranca.Controllers
     {
         public ActionResult Login()
         {
-            //ViewBag.returnUrl = returnUrl;
             return View();
         }
 
@@ -30,41 +29,6 @@ namespace SistemaLogin.Areas.Seguranca.Controllers
             ModelState.AddModelError("", "Nome ou senha inválido(s).");
 
             return View(details);
-
-
-
-            //if (ModelState.IsValid)
-            //{
-            //    if (details.Nome == "devops" && details.Senha == "devops")
-            //    {
-            //        Usuario user = GerenciadorUsuario.Find(details.Nome, details.Senha);
-
-            //        if (user == null)
-            //        {
-            //            ModelState.AddModelError("", "Nome ou senha inválido(s).");
-            //        }
-            //        else
-            //        {
-            //            ClaimsIdentity ident = GerenciadorUsuario.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-            //            AuthManager.SignOut();
-            //            AuthManager.SignIn(new AuthenticationProperties
-            //            {
-            //                IsPersistent = false
-            //            }, ident);
-            //            if (returnUrl == null)
-            //            {
-            //                returnUrl = "/Index";
-            //            }
-            //            return RedirectToAction(returnUrl);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        ModelState.AddModelError("", "Nome ou senha inválido(s).");
-            //    }
-
-            //}
-            //return View(details);
         }
         private IAuthenticationManager AuthManager
         {

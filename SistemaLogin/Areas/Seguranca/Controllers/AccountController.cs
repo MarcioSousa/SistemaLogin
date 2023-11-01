@@ -45,7 +45,7 @@ namespace SistemaLogin.Areas.Seguranca.Controllers
                     }, ident);
                     if (returnUrl == null)
                     {
-                        returnUrl = "/Home";
+                        returnUrl = "../../Cadastros/Pessoas";
                     }
                     return RedirectToAction(returnUrl);
                 }
